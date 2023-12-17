@@ -1,0 +1,45 @@
+ci:
+  autofix_commit_msg: "🚨 `pre-commit-ci`修复格式错误"
+  skip:
+    - "poetry-lock"
+  autofix_prs: true
+  autoupdate_branch: master
+  autoupdate_schedule: monthly
+  autoupdate_commit_msg: "⬆️ `pre-commit-ci`自动升级"
+repos:
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/psf/black
+    rev: 23.10.1
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.3.0
+    hooks:
+      - id: pycln
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/pdm-project/pdm
+    rev: 2.11.1
+    hooks:
+      - id: pdm-export
+        args: ['-o', 'requirements.txt', '--without-hashes']
+        files: ^pdm.lock$
+  - repo: https://github.com/pdm-project/pdm
+    rev: 2.11.1
+    hooks:
+      - id: pdm-lock-check

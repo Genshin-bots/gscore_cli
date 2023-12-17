@@ -1,0 +1,22 @@
+[project]
+name = "gscore_cli"
+version = "0.1.0"
+description = "GsCoreCLI、GsCore脚手架、快速部署GsCore并完成基本配置"
+authors = [
+    {name = "KimigaiiWuyi", email = "444835641@qq.com"},
+]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+    "questionary>=2.0.1",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.scripts]
+gscore = "src/gscore_cli/gscore.py"
