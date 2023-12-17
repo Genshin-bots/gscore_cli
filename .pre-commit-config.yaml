@@ -1,7 +1,5 @@
 ci:
   autofix_commit_msg: "🚨 `pre-commit-ci`修复格式错误"
-  skip:
-    - "poetry-lock"
   autofix_prs: true
   autoupdate_branch: master
   autoupdate_schedule: monthly
